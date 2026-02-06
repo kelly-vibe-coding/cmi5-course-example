@@ -505,6 +505,7 @@ const Course = (function() {
       visitedSections: Array.from(visitedSections),
       completedSections: Array.from(completedSections),
       quizScores,
+      finalExamScore,
       startTime
     };
 
@@ -527,6 +528,7 @@ const Course = (function() {
         visitedSections = new Set(state.visitedSections || ['1-1']);
         completedSections = new Set(state.completedSections || []);
         quizScores = state.quizScores || {};
+        finalExamScore = state.finalExamScore || null;
         startTime = state.startTime || Date.now();
         console.log('Course state loaded');
       }

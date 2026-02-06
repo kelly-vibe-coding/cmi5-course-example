@@ -1144,6 +1144,42 @@ const Cmi5 = (function() {
       return sendStatement(statement);
     },
 
+    /**
+     * Send an "allowed" statement synchronously (for beforeunload).
+     * Same as sendStatement but uses sync XHR so it completes before page teardown.
+     */
+    sendStatementSync(verb, result = null, object = null) {
+      if (!initialized || !this.isConnected() || terminated) return null;
+
+      const statement = {
+        id: generateUUID(),
+        actor: actor,
+        verb: verb,
+        object: object || { id: activityId, objectType: 'Activity' },
+        timestamp: new Date().toISOString(),
+        context: {
+          registration: registration,
+          extensions: {
+            'https://w3id.org/xapi/cmi5/context/extensions/sessionid': sessionId
+          }
+        }
+      };
+
+      if (result) statement.result = result;
+
+      if (contextTemplate) {
+        statement.context.contextActivities = statement.context.contextActivities || {};
+        if (contextTemplate.contextActivities?.parent) {
+          statement.context.contextActivities.parent = contextTemplate.contextActivities.parent;
+        }
+        if (contextTemplate.contextActivities?.grouping) {
+          statement.context.contextActivities.grouping = contextTemplate.contextActivities.grouping;
+        }
+      }
+
+      return sendStatementSync(statement);
+    },
+
     // ==================== DEBUG API ====================
 
     /**
@@ -1206,13 +1242,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (Cmi5.isConnected()) {
       if (statusEl) {
         statusEl.className = 'lrs-status connected';
-        statusText.textContent = 'LRS Connected';
+        if (statusText) statusText.textContent = 'LRS Connected';
         statusEl.title = 'Connected to LRS: ' + (Cmi5.getConfig().endpoint || 'unknown');
       }
     } else {
       if (statusEl) {
         statusEl.className = 'lrs-status standalone';
-        statusText.textContent = 'Standalone';
+        if (statusText) statusText.textContent = 'Standalone';
         statusEl.title = 'Running in standalone mode — no LRS connected.';
       }
     }
@@ -1222,7 +1258,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusText = statusEl?.querySelector('.lrs-status-text');
     if (statusEl) {
       statusEl.className = 'lrs-status error';
-      statusText.textContent = 'LRS Error';
+      if (statusText) statusText.textContent = 'LRS Error';
       statusEl.title = 'Failed to connect to LRS: ' + (error.message || 'Unknown error');
     }
   });

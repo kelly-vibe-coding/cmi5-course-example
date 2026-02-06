@@ -146,6 +146,7 @@ const XAPITracker = (function() {
     };
 
     allEvents.push(event);
+    if (allEvents.length > 2000) allEvents.splice(0, allEvents.length - 1000);
     eventQueue.push(event);
 
     if (DEBUG) {
@@ -596,7 +597,10 @@ const XAPITracker = (function() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight;
       const clientHeight = document.documentElement.clientHeight;
-      const scrollPercent = Math.round((scrollTop / (scrollHeight - clientHeight)) * 100) || 0;
+      const rawPercent = (scrollHeight - clientHeight) > 0
+        ? Math.round((scrollTop / (scrollHeight - clientHeight)) * 100)
+        : 0;
+      const scrollPercent = Math.min(100, Math.max(0, rawPercent));
 
       if (scrollPercent > scrollDepthMax) {
         scrollDepthMax = scrollPercent;
@@ -606,6 +610,7 @@ const XAPITracker = (function() {
         time: Date.now(),
         depth: scrollPercent
       });
+      if (scrollDepthSamples.length > 500) scrollDepthSamples.splice(0, scrollDepthSamples.length - 250);
     };
 
     window.addEventListener('scroll', () => {
@@ -1507,14 +1512,12 @@ const XAPITracker = (function() {
       return;
     }
 
-    // If a batch is already in progress, wait for it to finish then process remaining
+    // If a batch is already in progress, wait for it then bail out.
+    // The next scheduled interval or explicit flush will pick up remaining statements.
+    // This prevents multiple awaiters from all proceeding concurrently.
     if (batchInProgress) {
-      log('Batch already in progress, will process after current batch completes');
-      if (batchPromise) {
-        await batchPromise;
-      }
-      // After waiting, check if there are still statements to send
-      if (statementQueue.length === 0 || sessionEnded) return;
+      log('Batch already in progress, skipping (next cycle will pick up remaining)');
+      return;
     }
 
     batchInProgress = true;
@@ -1846,8 +1849,19 @@ const XAPITracker = (function() {
       totalKeyPresses: keyPressCount
     });
 
-    // Try to flush remaining statements
-    batchPromise = processBatch();
+    // Flush remaining statements synchronously so they survive page teardown
+    if (typeof Cmi5 !== 'undefined' && Cmi5.isConnected && Cmi5.isConnected() &&
+        !Cmi5.isTerminated() && Cmi5.sendStatementSync) {
+      const batch = [...statementQueue];
+      statementQueue = [];
+      for (const stmt of batch) {
+        try {
+          Cmi5.sendStatementSync(stmt.verb, stmt.result, stmt.object);
+        } catch (e) {
+          // Best effort — page is unloading
+        }
+      }
+    }
   });
 
   // ==================== PUBLIC API ====================

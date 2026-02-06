@@ -1288,15 +1288,22 @@ const Interactions = (function() {
         }
       };
 
-      submitBtn?.removeEventListener('click', handleSubmit);
-      skipBtn?.removeEventListener('click', handleSkip);
-      submitBtn?.addEventListener('click', handleSubmit);
-      skipBtn?.addEventListener('click', handleSkip);
+      // Clone and replace buttons to remove any old listeners
+      if (submitBtn) {
+        const newSubmit = submitBtn.cloneNode(true);
+        submitBtn.parentNode.replaceChild(newSubmit, submitBtn);
+        newSubmit.addEventListener('click', handleSubmit, { once: true });
+      }
+      if (skipBtn) {
+        const newSkip = skipBtn.cloneNode(true);
+        skipBtn.parentNode.replaceChild(newSkip, skipBtn);
+        newSkip.addEventListener('click', handleSkip, { once: true });
+      }
 
-      // Allow Enter to submit
+      // Allow Enter to submit (once)
       input?.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') handleSubmit();
-      });
+      }, { once: true });
 
       input?.focus();
     }
@@ -1326,18 +1333,15 @@ const Interactions = (function() {
 
     // === REPORT HIGH SCORE TO LRS ===
     function reportHighScoreToLRS() {
-      if (typeof xAPITracker !== 'undefined' && xAPITracker.sendInteractionStatement) {
+      if (typeof XAPITracker !== 'undefined' && XAPITracker.trackCustomEvent) {
         const accuracy = shotsFired > 0 ? Math.round((shotsHit / shotsFired) * 100) : 0;
-        xAPITracker.sendInteractionStatement(
-          'feature-invaders-highscore',
-          'numeric',
-          highScore.toString(),
-          `High Score: ${highScore} pts | Wave ${wave} | Accuracy: ${accuracy}% | Max Combo: ${maxCombo}x`,
-          true,
+        XAPITracker.trackCustomEvent('game_highscore', {
+          game: 'Feature Invaders',
           highScore,
-          15000
-        );
-        console.log('[FeatureInvaders] High score reported to LRS:', highScore);
+          wave,
+          accuracy,
+          maxCombo
+        });
       }
     }
 
@@ -2030,6 +2034,7 @@ const Interactions = (function() {
 
     // === PLAYER HIT BY PROJECTILE ===
     function playerHit() {
+      if (!gameRunning) return;
       playSound('playerHit'); // Harsh damage sound
 
       shields--;
@@ -2050,6 +2055,7 @@ const Interactions = (function() {
       setTimeout(() => ship.classList.remove('hit'), 300);
 
       if (shields <= 0) {
+        gameRunning = false;
         setTimeout(gameOver, 500);
       }
     }
@@ -2071,6 +2077,8 @@ const Interactions = (function() {
         return;
       }
 
+      if (!gameRunning) return;
+
       // ALL enemies escaping = lose a shield!
       playSound('escape'); // Sad descending sound
 
@@ -2086,6 +2094,7 @@ const Interactions = (function() {
       screenShake(2);
 
       if (shields <= 0) {
+        gameRunning = false;
         setTimeout(gameOver, 500);
       }
     }
@@ -3493,13 +3502,17 @@ const Interactions = (function() {
       // Create new exclusion item
       const item = document.createElement('div');
       item.className = 'exclusion-item';
-      item.innerHTML = `
-        <span>${value}</span>
-        <button class="remove-btn" aria-label="Remove">&times;</button>
-      `;
+      const span = document.createElement('span');
+      span.textContent = value;
+      const removeBtn = document.createElement('button');
+      removeBtn.className = 'remove-btn';
+      removeBtn.setAttribute('aria-label', 'Remove');
+      removeBtn.innerHTML = '&times;';
+      item.appendChild(span);
+      item.appendChild(removeBtn);
 
       // Add remove handler
-      item.querySelector('.remove-btn').addEventListener('click', () => {
+      removeBtn.addEventListener('click', () => {
         item.remove();
       });
 
