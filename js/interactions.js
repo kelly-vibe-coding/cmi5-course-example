@@ -11,7 +11,7 @@ const Interactions = (function() {
   let examBestScore = 0;
   let examQuestionIndex = 0;
   let examAnswers = [];
-  const MAX_EXAM_ATTEMPTS = 3;
+  const MAX_EXAM_ATTEMPTS = 99;
 
   // ==================== INLINE ERROR MESSAGES ====================
   // Replace alert() popups with user-friendly inline messages
@@ -3198,7 +3198,7 @@ const Interactions = (function() {
   function startExam() {
     if (examAttempts >= MAX_EXAM_ATTEMPTS) {
       const examContainer = document.getElementById('final-exam');
-      showInlineMessage(examContainer, 'You have used all 3 exam attempts. Your best score has been recorded.', 'error');
+      // 99 attempts — effectively unreachable
       return;
     }
 
@@ -3223,7 +3223,7 @@ const Interactions = (function() {
     // Update attempt counter
     const attemptDisplay = document.getElementById('exam-attempt-count');
     if (attemptDisplay) {
-      attemptDisplay.textContent = `Attempt ${examAttempts} of ${MAX_EXAM_ATTEMPTS}`;
+      attemptDisplay.textContent = `Attempt ${examAttempts}`;
     }
 
     saveExamState();
@@ -3308,8 +3308,8 @@ const Interactions = (function() {
       bestScoreDisplay.textContent = `${Math.round(examBestScore * 100)}%`;
     }
 
-    const attemptsLeft = MAX_EXAM_ATTEMPTS - examAttempts;
     if (attemptsLeftDisplay) {
+      const attemptsLeft = MAX_EXAM_ATTEMPTS - examAttempts;
       attemptsLeftDisplay.textContent = attemptsLeft;
     }
 
@@ -3319,15 +3319,15 @@ const Interactions = (function() {
       passFailDisplay.className = `exam-pass-fail ${passed ? 'passed' : 'failed'}`;
     }
 
-    // Show/hide retake button
+    // Always show retake button
     if (retakeBtn) {
-      retakeBtn.classList.toggle('hidden', attemptsLeft <= 0);
-      retakeBtn.textContent = `Retake Exam (${attemptsLeft} attempt${attemptsLeft !== 1 ? 's' : ''} remaining)`;
+      retakeBtn.classList.remove('hidden');
+      retakeBtn.textContent = 'Retake Exam';
     }
 
-    // Show complete button if passed or no attempts left
+    // Show complete button if passed
     if (completeBtn) {
-      completeBtn.classList.toggle('hidden', !passed && attemptsLeft > 0);
+      completeBtn.classList.toggle('hidden', !passed);
     }
 
     // Show results
@@ -3397,13 +3397,8 @@ const Interactions = (function() {
     }
 
     if (startBtn && examAttempts > 0) {
-      const attemptsLeft = MAX_EXAM_ATTEMPTS - examAttempts;
-      if (attemptsLeft > 0) {
-        startBtn.textContent = `Retake Exam (${attemptsLeft} attempt${attemptsLeft !== 1 ? 's' : ''} remaining)`;
-      } else {
-        startBtn.textContent = 'No attempts remaining';
-        startBtn.disabled = true;
-      }
+      startBtn.textContent = 'Retake Exam';
+      startBtn.disabled = false;
     }
   }
 

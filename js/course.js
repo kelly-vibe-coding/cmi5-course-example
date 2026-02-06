@@ -155,29 +155,12 @@ const Course = (function() {
   }
 
   /**
-   * Check if the exam has been passed
-   */
-  function hasPassedExam() {
-    if (typeof Interactions !== 'undefined' && Interactions.getExamBestScore) {
-      return Interactions.getExamBestScore() >= 0.75;
-    }
-    return false;
-  }
-
-  /**
    * Navigate to a specific section
    */
   function navigateToSection(sectionId, trackView = true) {
     const targetSection = document.getElementById(`section-${sectionId}`);
     if (!targetSection) {
       console.warn(`Section not found: ${sectionId}`);
-      return;
-    }
-
-    // Block access to completion section until exam is passed
-    if (sectionId === 'completion' && !hasPassedExam()) {
-      console.log('[Course] Completion section locked - exam not yet passed');
-      alert('Please pass the Final Exam before accessing the Course Completion section.');
       return;
     }
 
@@ -273,13 +256,10 @@ const Course = (function() {
    * Update sidebar active states
    */
   function updateSidebarState() {
-    // Check if exam is passed for completion section lock state
-    const examPassed = hasPassedExam();
-
     // Update section links
     document.querySelectorAll('.section-link').forEach(link => {
       const sectionId = link.dataset.section;
-      link.classList.remove('active', 'locked');
+      link.classList.remove('active');
 
       if (sectionId === currentSectionId) {
         link.classList.add('active');
@@ -289,10 +269,7 @@ const Course = (function() {
         link.classList.add('completed');
       }
 
-      // Mark completion section as locked if exam not passed
-      if (sectionId === 'completion' && !examPassed) {
-        link.classList.add('locked');
-      }
+      // Completion section is always accessible
     });
 
     // Update module status indicators

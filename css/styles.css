@@ -179,72 +179,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==================== LRS STATUS INDICATOR ==================== */
-.lrs-status {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: var(--radius-full, 50px);
-  background: rgba(0, 0, 0, 0.05);
-  font-size: 11px;
-  font-weight: 500;
-  cursor: help;
-  transition: all 200ms ease;
-  margin-left: 12px;
-  white-space: nowrap;
-}
-
-.lrs-status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #9ca3af;
-  transition: background 300ms ease;
-  flex-shrink: 0;
-}
-
-.lrs-status-text {
-  color: #6b7280;
-  transition: color 300ms ease;
-}
-
-/* Connected state */
-.lrs-status.connected .lrs-status-dot {
-  background: #10b981;
-  box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
-}
-.lrs-status.connected .lrs-status-text {
-  color: #059669;
-}
-
-/* Standalone/offline state */
-.lrs-status.standalone .lrs-status-dot {
-  background: #f59e0b;
-}
-.lrs-status.standalone .lrs-status-text {
-  color: #d97706;
-}
-
-/* Error state */
-.lrs-status.error .lrs-status-dot {
-  background: #ef4444;
-  animation: lrsErrorPulse 2s ease-in-out infinite;
-}
-.lrs-status.error .lrs-status-text {
-  color: #dc2626;
-}
-
-@keyframes lrsErrorPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-/* Hide on very small screens */
-@media (max-width: 480px) {
-  .lrs-status {
-    display: none;
-  }
-}
+/* LRS status indicator removed */
 
 /* ==================== MAIN LAYOUT ==================== */
 .main-layout {
@@ -313,24 +248,21 @@ h1, h2, h3, h4 {
 }
 
 .module-status {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: var(--radius-full);
-  background: var(--color-border);
+  background: var(--color-border-dark);
+  flex-shrink: 0;
 }
 
 .module-status[data-status="complete"] {
   background: var(--color-success);
-  animation: completePulse 2s ease-in-out infinite;
-}
-
-@keyframes completePulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-  50% { box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
 }
 
 .module-status[data-status="in-progress"] {
-  background: var(--color-accent);
+  background: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.2);
 }
 
 .section-list {
@@ -352,6 +284,7 @@ h1, h2, h3, h4 {
   text-decoration: none;
   transition: all 200ms var(--ease-out-expo);
   border-left: 3px solid transparent;
+  position: relative;
 }
 
 .section-link:hover {
@@ -360,35 +293,30 @@ h1, h2, h3, h4 {
 }
 
 .section-link.active {
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   background: var(--color-primary-light);
   border-left-color: var(--color-primary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .section-link.completed {
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .section-link.completed::before {
-  content: '✓ ';
-  color: var(--color-success);
-}
-
-/* v27: Locked section (e.g., completion before exam passed) */
-.section-link.locked {
-  color: var(--color-text-muted, #999);
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-.section-link.locked::before {
-  content: '🔒 ';
-}
-
-.section-link.locked:hover {
-  background: transparent;
-  color: var(--color-text-muted, #999);
+  content: '✓';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-success);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  margin-right: 6px;
+  vertical-align: middle;
 }
 
 /* ==================== CONTENT AREA ==================== */
