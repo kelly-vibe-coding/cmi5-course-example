@@ -1,0 +1,2577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform Launch Training - NovaPay</title>
+  <link rel="stylesheet" href="css/styles.css?v=8">
+  <link rel="stylesheet" href="css/game-styles.css?v=6">
+</head>
+<body>
+  <!-- Header -->
+  <header class="course-header">
+    <div class="header-content">
+      <div class="logo">
+        <img src="images/novapay-logo.png" alt="NovaPay" class="logo-img">
+      </div>
+      <div class="progress-container">
+        <span class="progress-label">Progress:</span>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-percent" id="progressPercent">0%</span>
+      </div>
+      <div class="lrs-status" id="lrsStatus" title="LRS Connection Status">
+        <span class="lrs-status-dot"></span>
+        <span class="lrs-status-text">Checking...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="main-layout">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-content">
+        <!-- Module 1 -->
+        <div class="nav-module" data-module="1">
+          <button class="module-header" aria-expanded="true">
+            <span class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M4 6l4 4 4-4"/>
+              </svg>
+            </span>
+            <span class="module-title">Welcome & Overview</span>
+            <span class="module-status" data-status="incomplete"></span>
+          </button>
+          <ul class="section-list">
+            <li><a href="#section-1-1" class="section-link active" data-section="1-1">Platform Overview</a></li>
+            <li><a href="#section-1-2" class="section-link" data-section="1-2">What's New At-a-Glance</a></li>
+          </ul>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="nav-module" data-module="2">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M4 6l4 4 4-4"/>
+              </svg>
+            </span>
+            <span class="module-title">Core Payments</span>
+            <span class="module-status" data-status="incomplete"></span>
+          </button>
+          <ul class="section-list collapsed">
+            <li><a href="#section-2-1" class="section-link" data-section="2-1">Introduction to Instant Payouts</a></li>
+            <li><a href="#section-2-2" class="section-link" data-section="2-2">Building Your First Payout Flow</a></li>
+            <li><a href="#section-2-3" class="section-link" data-section="2-3">Interactive Demo</a></li>
+            <li><a href="#section-2-4" class="section-link" data-section="2-4">Knowledge Check</a></li>
+          </ul>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="nav-module" data-module="3">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M4 6l4 4 4-4"/>
+              </svg>
+            </span>
+            <span class="module-title">Developer Tools</span>
+            <span class="module-status" data-status="incomplete"></span>
+          </button>
+          <ul class="section-list collapsed">
+            <li><a href="#section-3-1" class="section-link" data-section="3-1">Connect API Overview</a></li>
+            <li><a href="#section-3-2" class="section-link" data-section="3-2">Drop-in UI Components</a></li>
+            <li><a href="#section-3-3" class="section-link" data-section="3-3">Webhooks Pro Configuration</a></li>
+            <li><a href="#section-3-4" class="section-link" data-section="3-4">Knowledge Check</a></li>
+          </ul>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="nav-module" data-module="4">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M4 6l4 4 4-4"/>
+              </svg>
+            </span>
+            <span class="module-title">Security & Compliance</span>
+            <span class="module-status" data-status="incomplete"></span>
+          </button>
+          <ul class="section-list collapsed">
+            <li><a href="#section-4-1" class="section-link" data-section="4-1">Fraud Shield Overview</a></li>
+            <li><a href="#section-4-2" class="section-link" data-section="4-2">Vault & Tokenization Setup</a></li>
+            <li><a href="#section-4-3" class="section-link" data-section="4-3">Compliance Hub Rules</a></li>
+            <li><a href="#section-4-4" class="section-link" data-section="4-4">Knowledge Check</a></li>
+          </ul>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="nav-module" data-module="5">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M4 6l4 4 4-4"/>
+              </svg>
+            </span>
+            <span class="module-title">Embedded Finance</span>
+            <span class="module-status" data-status="incomplete"></span>
+          </button>
+          <ul class="section-list collapsed">
+            <li><a href="#section-5-1" class="section-link" data-section="5-1">Embedded Accounts</a></li>
+            <li><a href="#section-5-2" class="section-link" data-section="5-2">Global Rails & Multi-Currency</a></li>
+            <li><a href="#section-5-3" class="section-link" data-section="5-3">Revenue Analytics</a></li>
+          </ul>
+        </div>
+
+        <!-- Module 6 -->
+        <div class="nav-module" data-module="6">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M4 6l4 4 4-4"/>
+              </svg>
+            </span>
+            <span class="module-title">Platform Operations</span>
+            <span class="module-status" data-status="incomplete"></span>
+          </button>
+          <ul class="section-list collapsed">
+            <li><a href="#section-6-1" class="section-link" data-section="6-1">Live Ledger</a></li>
+            <li><a href="#section-6-2" class="section-link" data-section="6-2">Smart Routing</a></li>
+            <li><a href="#section-6-3" class="section-link" data-section="6-3">API Permissions & Scopes</a></li>
+          </ul>
+        </div>
+
+        <!-- Final Exam -->
+        <div class="nav-module" data-module="exam">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M4 6l4 4 4-4"/>
+              </svg>
+            </span>
+            <span class="module-title">Final Exam</span>
+            <span class="module-status" data-status="incomplete"></span>
+          </button>
+          <ul class="section-list collapsed">
+            <li><a href="#section-exam" class="section-link" data-section="exam">Final Assessment</a></li>
+          </ul>
+        </div>
+
+        <!-- Completion -->
+        <div class="nav-module" data-module="completion">
+          <button class="module-header" aria-expanded="false">
+            <span class="module-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 0a8 8 0 100 16A8 8 0 008 0zm3.5 6.5l-4 4a.5.5 0 01-.7 0l-2-2a.5.5 0 11.7-.7L7 9.3l3.6-3.6a.5.5 0 11.7.7z"/>
+              </svg>
+            </span>
+            <span class="module-title">Course Completion</span>
+            <span class="module-status" data-status="incomplete"></span>
+          </button>
+          <ul class="section-list collapsed">
+            <li><a href="#section-completion" class="section-link" data-section="completion">Summary & Certificate</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Content Area -->
+    <main class="content-area" id="contentArea">
+
+      <!-- ==================== MODULE 1: WELCOME & OVERVIEW ==================== -->
+
+      <!-- Section 1.1: Platform Overview -->
+      <section class="content-section" id="section-1-1" data-section="1-1" data-module="1">
+        <div class="section-header">
+          <span class="section-badge">Module 1</span>
+          <h1>Platform Overview</h1>
+          <p class="section-subtitle">Welcome to NovaPay — the payments infrastructure developers love</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-1-1-platform-overview.png" alt="Platform Overview" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h2>Key Highlights</h2>
+          <p>Your users expect fast, reliable, and seamless payment experiences—and NovaPay gives you the building blocks to deliver exactly that.</p>
+
+          <div class="highlight-box">
+            <h3>What NovaPay offers:</h3>
+            <ul>
+              <li><strong>Instant Payouts & Connect API</strong> — Move money in real-time and link any bank account, card, or wallet in a single integration</li>
+              <li><strong>Developer-first tools</strong> — Drop-in UI components, Webhooks Pro, and comprehensive SDKs for rapid integration</li>
+              <li><strong>Security & Compliance built-in</strong> — ML-powered Fraud Shield, PCI-compliant Vault, and automated KYC/AML via Compliance Hub</li>
+              <li><strong>Embedded Finance at scale</strong> — White-label accounts, global multi-currency rails, and real-time revenue analytics</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-primary btn-next" data-next="1-2">
+            Continue to What's New
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 1.2: What's New At-a-Glance - FEATURE INVADERS v34 -->
+      <section class="content-section hidden" id="section-1-2" data-section="1-2" data-module="1">
+        <div class="section-header">
+          <span class="section-badge">Module 1</span>
+          <h1>What's New At-a-Glance</h1>
+          <p class="section-subtitle">Learn the new features by destroying them!</p>
+        </div>
+
+        <!-- Hidden data source for features with longer descriptions -->
+        <div id="game-features-data" style="display: none;">
+          <div data-icon="🔗" data-title="Connect API" data-desc="Unified API to link any bank account, card network, or wallet in a single integration."></div>
+          <div data-icon="⚡" data-title="Instant Payouts" data-desc="Real-time settlement that moves money in seconds, not days."></div>
+          <div data-icon="🛡️" data-title="Fraud Shield" data-desc="ML-powered transaction monitoring that blocks fraud before it clears."></div>
+          <div data-icon="📊" data-title="Live Ledger" data-desc="Real-time double-entry ledger with sub-cent precision and full audit trail."></div>
+          <div data-icon="🧩" data-title="Drop-in UI" data-desc="Pre-built, themeable React components for checkout, onboarding, and account management."></div>
+          <div data-icon="🔐" data-title="Vault" data-desc="PCI-compliant tokenization engine that stores sensitive data so you never have to."></div>
+          <div data-icon="🌍" data-title="Global Rails" data-desc="Multi-currency support across 40+ countries with automatic FX and local payment methods."></div>
+          <div data-icon="📋" data-title="Compliance Hub" data-desc="Automated KYC/KYB/AML checks with built-in regulatory reporting."></div>
+          <div data-icon="🪝" data-title="Webhooks Pro" data-desc="Reliable event delivery with replay, filtering, and real-time debugging dashboard."></div>
+          <div data-icon="🏦" data-title="Embedded Accounts" data-desc="White-label bank accounts and virtual cards your users think are yours."></div>
+          <div data-icon="🔄" data-title="Smart Routing" data-desc="Intelligent payment routing that optimizes for cost, speed, and success rate."></div>
+          <div data-icon="📈" data-title="Revenue Analytics" data-desc="Real-time dashboards for payment volume, conversion rates, and revenue metrics."></div>
+        </div>
+
+        <!-- FEATURE INVADERS v34 - ULTIMATE EDITION -->
+        <div class="game-fullscreen-container">
+          <!-- Main Game Area -->
+          <div class="game-main">
+            <div class="invaders-wrapper">
+              <!-- CRT Effects -->
+              <div class="invaders-scanlines"></div>
+              <div class="invaders-crt-curve"></div>
+
+              <!-- Particle Container -->
+              <div id="particle-container"></div>
+
+              <!-- Pre-Cinematic Welcome Screen -->
+              <div id="invaders-welcome" class="invaders-overlay welcome-overlay">
+                <div class="welcome-content">
+                  <div class="welcome-badge">INCOMING TRANSMISSION</div>
+                  <div class="welcome-title">
+                    <span class="welcome-title-line">FEATURE</span>
+                    <span class="welcome-title-line">INVADERS</span>
+                  </div>
+                  <div class="welcome-subtitle">Platform Launch</div>
+
+                  <div class="welcome-description">
+                    <p>12 new features are headed your way.</p>
+                    <p>Learn what they do before you destroy them!</p>
+                  </div>
+
+                  <button id="welcome-start-btn" class="game-btn game-btn-primary welcome-start-btn">
+                    <span class="btn-text">START BRIEFING</span>
+                    <span class="btn-icon">▶</span>
+                  </button>
+
+                  <div class="welcome-hint">
+                    <span class="hint-icon">⏱</span>
+                    <span class="hint-text">Takes about 30 seconds</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cinematic Villain Intro (hidden until started) -->
+              <div id="invaders-cinematic" class="invaders-overlay cinematic-overlay" style="display: none;">
+                <!-- Skip button - always visible -->
+                <button id="cinematic-skip-btn" class="cinematic-skip-btn">
+                  SKIP <span class="skip-key">[ESC]</span>
+                </button>
+
+                <!-- Title sequence -->
+                <div id="cinematic-title" class="cinematic-title">
+                  <div class="cinematic-title-line1">THREAT</div>
+                  <div class="cinematic-title-line2">DETECTED</div>
+                  <div class="cinematic-subtitle">12 new features have invaded the system</div>
+                </div>
+
+                <!-- Villain parade container - all villains will march across -->
+                <div id="villain-parade" class="villain-parade">
+                  <!-- Villains are added dynamically by JS -->
+                </div>
+
+                <!-- Current villain spotlight -->
+                <div id="villain-spotlight" class="villain-spotlight">
+                  <div class="spotlight-glow"></div>
+                  <div class="spotlight-content">
+                    <div class="spotlight-icon-container" id="spotlight-icon-container">
+                      <span id="spotlight-icon" class="spotlight-icon">📣</span>
+                    </div>
+                    <div class="spotlight-info">
+                      <div class="spotlight-name-wrapper">
+                        <span class="spotlight-name" id="spotlight-name">Posts</span>
+                        <span class="spotlight-threat" id="spotlight-threat">THREAT: HIGH</span>
+                      </div>
+                      <div class="spotlight-desc" id="spotlight-desc">Share news, videos, and rich media content directly with your investors through the portal.</div>
+                    </div>
+                  </div>
+                  <div class="spotlight-counter">
+                    <span id="spotlight-current">1</span> / <span id="spotlight-total">12</span>
+                  </div>
+                </div>
+
+                <!-- Final call to action -->
+                <div id="cinematic-cta" class="cinematic-cta" style="display: none;">
+                  <div class="cta-text">TARGETS ACQUIRED</div>
+                  <div class="cta-subtext">Prepare for combat</div>
+                  <button id="cinematic-start-btn" class="game-btn game-btn-primary cinematic-start-btn">
+                    BEGIN ASSAULT <span class="btn-icon">▶</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Start Screen - Phase 2: Ready to Play -->
+              <div id="invaders-start" class="invaders-overlay" style="display: none;">
+                <div class="invaders-overlay-content start-content">
+                  <div class="game-logo-container">
+                    <div class="game-logo-text">FEATURE</div>
+                    <div class="game-logo-text">INVADERS</div>
+                  </div>
+                  <div class="game-tagline">PLATFORM LAUNCH</div>
+
+                  <!-- Company Leaderboard -->
+                  <div class="start-leaderboard">
+                    <div class="leaderboard-title">🏆 COMPANY LEADERBOARD</div>
+                    <div id="leaderboard-list" class="leaderboard-list">
+                      <div class="leaderboard-entry top-score">
+                        <span class="leaderboard-rank">1</span>
+                        <span class="leaderboard-name">Champion</span>
+                        <span class="leaderboard-score">5,000</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="start-stats-row">
+                    <div class="start-stat">
+                      <span class="start-stat-label">YOUR BEST</span>
+                      <span id="start-highscore" class="start-stat-value">00000</span>
+                    </div>
+                    <div class="start-stat">
+                      <span class="start-stat-label">BEST WAVE</span>
+                      <span id="start-bestwave" class="start-stat-value">-</span>
+                    </div>
+                  </div>
+
+                  <div class="start-instructions">
+                    <div class="instruction-item"><span class="key">←</span><span class="key">→</span> MOVE</div>
+                    <div class="instruction-item"><span class="key">SPACE</span> FIRE</div>
+                  </div>
+
+                  <button id="invaders-start-btn" class="game-btn game-btn-primary">
+                    <span class="btn-icon">▶</span> START MISSION
+                  </button>
+                  <button id="invaders-skip-btn" class="game-btn game-btn-ghost">SKIP TRAINING</button>
+                </div>
+              </div>
+
+              <!-- Name Entry Popup -->
+              <div id="name-entry-popup" class="invaders-overlay" style="display: none;">
+                <div class="invaders-overlay-content name-entry-content">
+                  <div class="name-entry-title">ENTER YOUR NAME</div>
+                  <div class="name-entry-subtitle">Join the company leaderboard!</div>
+
+                  <div class="name-entry-score-display">
+                    <span class="name-entry-label">YOUR SCORE</span>
+                    <span id="name-entry-score" class="name-entry-score">0</span>
+                  </div>
+
+                  <input type="text" id="player-name-input" class="name-entry-input" placeholder="Your Name" maxlength="20" autocomplete="off">
+
+                  <div class="name-entry-buttons">
+                    <button id="submit-name-btn" class="game-btn game-btn-primary">
+                      <span class="btn-icon">✓</span> SUBMIT SCORE
+                    </button>
+                    <button id="skip-name-btn" class="game-btn game-btn-ghost">SKIP</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Game Over Screen -->
+              <div id="invaders-gameover" class="invaders-overlay" style="display: none;">
+                <div class="invaders-overlay-content gameover-content">
+                  <div class="gameover-title">MISSION FAILED</div>
+                  <div class="gameover-subtitle">Your shields have been depleted</div>
+
+                  <div class="results-grid">
+                    <div class="result-card">
+                      <div class="result-label">FINAL SCORE</div>
+                      <div id="gameover-score" class="result-value big">0</div>
+                    </div>
+                    <div class="result-card">
+                      <div class="result-label">WAVE REACHED</div>
+                      <div id="gameover-wave" class="result-value">1</div>
+                    </div>
+                    <div class="result-card">
+                      <div class="result-label">FEATURES LEARNED</div>
+                      <div id="gameover-features" class="result-value">0/12</div>
+                    </div>
+                    <div class="result-card">
+                      <div class="result-label">ACCURACY</div>
+                      <div id="gameover-accuracy" class="result-value">0%</div>
+                    </div>
+                    <div class="result-card">
+                      <div class="result-label">MAX COMBO</div>
+                      <div id="gameover-combo" class="result-value">0x</div>
+                    </div>
+                    <div class="result-card">
+                      <div class="result-label">GRADE</div>
+                      <div id="gameover-grade" class="result-value grade">D</div>
+                    </div>
+                  </div>
+
+                  <div id="gameover-highscore-msg" class="new-record-msg" style="display: none;">
+                    ★ NEW HIGH SCORE! ★
+                  </div>
+
+                  <!-- Leaderboard Section -->
+                  <div class="gameover-leaderboard">
+                    <div class="leaderboard-title">TOP PILOTS</div>
+                    <div id="gameover-leaderboard-list" class="leaderboard-list-vertical"></div>
+                  </div>
+
+                  <div class="gameover-buttons">
+                    <button id="invaders-retry-btn" class="game-btn game-btn-primary">
+                      <span class="btn-icon">↻</span> TRY AGAIN
+                    </button>
+                    <button id="invaders-skip-btn-2" class="game-btn game-btn-ghost">SKIP</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Victory Screen -->
+              <div id="invaders-victory" class="invaders-overlay" style="display: none;">
+                <div class="invaders-overlay-content victory-content">
+                  <div class="victory-title">MISSION COMPLETE</div>
+                  <div class="victory-subtitle">All features have been acquired!</div>
+
+                  <div class="results-grid victory-grid">
+                    <div class="result-card featured">
+                      <div class="result-label">FINAL SCORE</div>
+                      <div id="victory-score" class="result-value big">0</div>
+                    </div>
+                    <div class="result-card">
+                      <div class="result-label">TIME</div>
+                      <div id="victory-time" class="result-value">0:00</div>
+                    </div>
+                    <div class="result-card">
+                      <div class="result-label">ACCURACY</div>
+                      <div id="victory-accuracy" class="result-value">0%</div>
+                    </div>
+                    <div class="result-card">
+                      <div class="result-label">MAX COMBO</div>
+                      <div id="victory-combo" class="result-value">0x</div>
+                    </div>
+                    <div class="result-card span-2">
+                      <div class="result-label">MISSION GRADE</div>
+                      <div id="victory-grade" class="result-value grade">S</div>
+                    </div>
+                  </div>
+
+                  <div id="victory-highscore-msg" class="new-record-msg" style="display: none;">
+                    ★ NEW HIGH SCORE! ★
+                  </div>
+
+                  <button id="invaders-continue-btn" class="game-btn game-btn-primary">
+                    CONTINUE TO COURSE <span class="btn-icon">→</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Game Area -->
+              <div id="invaders-game">
+                <!-- Top HUD Bar -->
+                <div class="game-hud-bar">
+                  <div class="hud-section hud-left">
+                    <div class="hud-item">
+                      <span class="hud-label">SCORE</span>
+                      <span id="invaders-score" class="hud-value score-value">00000</span>
+                    </div>
+                    <div class="hud-item combo-display" id="combo-display" style="opacity: 0;">
+                      <span class="combo-text"><span id="combo-count">2</span>x COMBO!</span>
+                    </div>
+                  </div>
+                  <div class="hud-section hud-center">
+                    <div class="hud-item wave-indicator">
+                      <span class="hud-label">WAVE</span>
+                      <span id="invaders-wave" class="hud-value wave-value">1<span class="wave-total">/3</span></span>
+                    </div>
+                    <div class="hud-item intel-indicator">
+                      <span class="hud-label">INTEL</span>
+                      <span id="invaders-intel" class="hud-value intel-value">0<span class="intel-total">/12</span></span>
+                    </div>
+                  </div>
+                  <div class="hud-section hud-right">
+                    <div class="hud-item">
+                      <span class="hud-label">SHIELDS</span>
+                      <div id="invaders-shields" class="shield-bar">
+                        <div class="shield-pip active"></div>
+                        <div class="shield-pip active"></div>
+                        <div class="shield-pip active"></div>
+                      </div>
+                    </div>
+                    <button id="sound-toggle" class="sound-toggle" title="Toggle Sound">
+                      <span class="sound-on">🔊</span>
+                      <span class="sound-off" style="display:none;">🔇</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Wave Transition -->
+                <div id="wave-transition" class="wave-transition">
+                  <div class="wave-transition-content">
+                    <div class="wave-transition-label">WAVE</div>
+                    <div id="wave-number" class="wave-transition-number">2</div>
+                    <div class="wave-transition-subtitle">INCOMING!</div>
+                    <div id="wave-difficulty" class="wave-difficulty">DIFFICULTY: MEDIUM</div>
+                  </div>
+                </div>
+
+                <!-- Intel Popup (shows on kill) -->
+                <div id="intel-popup" class="intel-popup">
+                  <div class="intel-header">
+                    <span class="intel-badge">INTEL ACQUIRED</span>
+                    <span id="intel-points" class="intel-points">+100</span>
+                  </div>
+                  <div class="intel-content">
+                    <span id="intel-icon" class="intel-icon">📣</span>
+                    <div class="intel-text">
+                      <div id="intel-title" class="intel-title">Posts</div>
+                      <div id="intel-desc" class="intel-desc">Share rich media directly with investors.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Player Ship (SVG for better graphics) -->
+                <div id="invaders-ship" class="player-ship">
+                  <div class="ship-glow"></div>
+                  <div class="ship-body-main">▲</div>
+                  <div class="ship-thruster">
+                    <div class="thruster-flame"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Sidebar - Intel Panel -->
+          <div class="game-sidebar">
+            <!-- Stats - compact at top -->
+            <div class="sidebar-section sidebar-stats">
+              <div class="stats-row">
+                <div class="stat-item">
+                  <span class="stat-label">HIGH</span>
+                  <span id="sidebar-highscore" class="stat-value highlight">00000</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">SCORE</span>
+                  <span id="sidebar-current-score" class="stat-value">00000</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-label">ACC</span>
+                  <span id="sidebar-accuracy" class="stat-value">-%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Intel Acquired - MAIN LEARNING AREA -->
+            <div class="sidebar-section sidebar-intel-main">
+              <div class="sidebar-title-bar">
+                <span class="sidebar-icon">📚</span>
+                <span>INTEL ACQUIRED</span>
+                <span id="sidebar-progress" class="target-count">0/12</span>
+              </div>
+              <div id="intel-feed" class="intel-feed">
+                <div class="intel-empty-state">
+                  <div class="intel-empty-icon">🎯</div>
+                  <div class="intel-empty-text">Destroy targets to learn about new features!</div>
+                  <div class="intel-empty-hint">Each target reveals important product intel.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="completion-prompt" id="featureCardsCompletion" style="display: none;">
+          <div class="completion-icon">✓</div>
+          <p>Excellent work, agent! You've learned all the new features. Let's dive deeper into each one.</p>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="1-1">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="2-1">
+            Continue to Instant Payouts
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== MODULE 2: CORE PAYMENTS ==================== -->
+
+      <!-- Section 2.1: Introduction to Instant Payouts -->
+      <section class="content-section hidden" id="section-2-1" data-section="2-1" data-module="2">
+        <div class="section-header">
+          <span class="section-badge">Module 2</span>
+          <h1>Introduction to Instant Payouts</h1>
+          <p class="section-subtitle">Move money at the speed of the internet</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-2-1-instant-payouts.png" alt="Introduction to Instant Payouts" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="intro-hero">
+            <div class="hero-icon">⚡</div>
+            <div class="hero-text">
+              <h2>Real-time settlement, zero friction</h2>
+              <p>Instant Payouts lets you move money in real-time—settling transactions in seconds instead of the typical 2-3 business days. Whether it's marketplace seller payouts, gig worker payments, or refunds, your users get their money instantly.</p>
+            </div>
+          </div>
+
+          <h3>Key Benefits</h3>
+          <div class="benefits-list">
+            <div class="benefit-item" data-aos="fade-up">
+              <div class="benefit-icon">💸</div>
+              <div class="benefit-text">
+                <strong>Real-time settlement</strong>
+                <p>Funds arrive in seconds, not days</p>
+              </div>
+            </div>
+            <div class="benefit-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="benefit-icon">🏦</div>
+              <div class="benefit-text">
+                <strong>Multiple payout rails</strong>
+                <p>Bank transfer, card push, and digital wallet support</p>
+              </div>
+            </div>
+            <div class="benefit-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="benefit-icon">📱</div>
+              <div class="benefit-text">
+                <strong>API-first design</strong>
+                <p>Simple REST API with comprehensive SDKs</p>
+              </div>
+            </div>
+            <div class="benefit-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="benefit-icon">📊</div>
+              <div class="benefit-text">
+                <strong>Full visibility</strong>
+                <p>Track every payout with real-time status updates</p>
+              </div>
+            </div>
+            <div class="benefit-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="benefit-icon">🔒</div>
+              <div class="benefit-text">
+                <strong>Built-in compliance</strong>
+                <p>Automatic sanctions screening and velocity checks</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="1-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="2-2">
+            Watch the Walkthrough
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 2.2: Building Your First Payout Flow -->
+      <section class="content-section hidden" id="section-2-2" data-section="2-2" data-module="2">
+        <div class="section-header">
+          <span class="section-badge">Module 2</span>
+          <h1>Building Your First Payout Flow</h1>
+          <p class="section-subtitle">A complete walkthrough of the Instant Payouts API</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-2-2-payout-flow.png" alt="Building Your First Payout Flow" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h2>What You'll Learn</h2>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>API Integration</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <ul>
+                  <li>RESTful API with idempotency keys for safe retries</li>
+                  <li>Sandbox environment for testing before going live</li>
+                  <li>Comprehensive webhook notifications for payout status changes</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Payout Parameters</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <ul>
+                  <li>Amount, currency, and destination account</li>
+                  <li>Speed selection: instant or standard</li>
+                  <li>Metadata fields for your internal tracking</li>
+                  <li>Unique reference ID for reconciliation</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Getting Started</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="steps-list">
+                  <div class="step">
+                    <span class="step-number">1</span>
+                    <span>Generate API keys in the NovaPay Dashboard</span>
+                  </div>
+                  <div class="step">
+                    <span class="step-number">2</span>
+                    <span>Connect a funding source (bank account or balance)</span>
+                  </div>
+                  <div class="step">
+                    <span class="step-number">3</span>
+                    <span>Create a payout recipient with the Connect API</span>
+                  </div>
+                  <div class="step">
+                    <span class="step-number">4</span>
+                    <span>Send your first payout with a single API call</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Payout Methods</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <ul>
+                  <li>Bank transfer (ACH, wire, SEPA)</li>
+                  <li>Card push (Visa Direct, Mastercard Send)</li>
+                  <li>Digital wallet (PayPal, Venmo, Apple Pay)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="2-1">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="2-3">
+            Try the Demo
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 2.3: Interactive Demo - Payout Builder -->
+      <section class="content-section hidden" id="section-2-3" data-section="2-3" data-module="2">
+        <div class="section-header">
+          <span class="section-badge">Module 2</span>
+          <h1>Interactive Demo: Payout Builder</h1>
+          <p class="section-subtitle">Try building a payout yourself</p>
+        </div>
+
+        <div class="demo-container">
+          <div class="demo-form">
+            <h3>Create Your Payout</h3>
+
+            <div class="form-group">
+              <label for="postTitle">Payout Amount *</label>
+              <input type="text" id="postTitle" placeholder="250.00" maxlength="100">
+            </div>
+
+            <div class="form-group">
+              <label for="postTopic">Currency *</label>
+              <select id="postTopic">
+                <option value="">Select a currency...</option>
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="gbp">GBP</option>
+                <option value="jpy">JPY</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="postSubtitle">Destination Account *</label>
+              <input type="text" id="postSubtitle" placeholder="acct_1A2B3C4D5E" maxlength="150">
+            </div>
+
+            <div class="form-group">
+              <label>Header Color</label>
+              <div class="color-picker">
+                <button class="color-option selected" data-color="#7C3AED" style="background: #7C3AED;" title="Purple"></button>
+                <button class="color-option" data-color="#0F172A" style="background: #0F172A;" title="Navy"></button>
+                <button class="color-option" data-color="#06B6D4" style="background: #06B6D4;" title="Cyan"></button>
+                <button class="color-option" data-color="#6D28D9" style="background: #6D28D9;" title="Deep Purple"></button>
+                <button class="color-option" data-color="#1e40af" style="background: #1e40af;" title="Royal Blue"></button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="postContent">Description</label>
+              <textarea id="postContent" rows="4" placeholder="Marketplace seller payout for order #12345"></textarea>
+            </div>
+
+            <button class="btn btn-primary" id="publishPost" disabled>
+              Submit Payout
+            </button>
+          </div>
+
+          <div class="demo-preview">
+            <h3>Live Preview</h3>
+            <div class="post-preview">
+              <div class="preview-header" id="previewHeader">
+                <span class="preview-topic" id="previewTopic">Topic</span>
+                <h2 class="preview-title" id="previewTitle">Payout Request Preview</h2>
+                <p class="preview-subtitle" id="previewSubtitle"></p>
+              </div>
+              <div class="preview-body">
+                <p class="preview-date" id="previewDate"></p>
+                <p class="preview-content" id="previewContent">Your content will appear here...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-success hidden" id="demoSuccess">
+          <div class="success-animation">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+              <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+          <h3>Payout submitted successfully!</h3>
+          <p>In the real application, your payout would now be processed and funds sent to the destination account.</p>
+          <button class="btn btn-secondary" id="resetDemo">Try Again</button>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="2-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="2-4">
+            Take Knowledge Check
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 2.4: Knowledge Check -->
+      <section class="content-section hidden" id="section-2-4" data-section="2-4" data-module="2">
+        <div class="section-header">
+          <span class="section-badge">Module 2</span>
+          <h1>Knowledge Check</h1>
+          <p class="section-subtitle">Test your understanding of Instant Payouts</p>
+        </div>
+
+        <div class="quiz-container" id="quiz-module-2">
+          <!-- Question 1 -->
+          <div class="quiz-question" data-question="2-1">
+            <h3>Question 1 of 3</h3>
+            <p class="question-text">How quickly can Instant Payouts settle a transaction?</p>
+            <div class="quiz-options">
+              <label class="quiz-option">
+                <input type="radio" name="q2-1" value="a">
+                <span class="option-text">Within 2-3 business days</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q2-1" value="b">
+                <span class="option-text">In seconds, in real-time</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q2-1" value="c">
+                <span class="option-text">Within 24 hours</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q2-1" value="d">
+                <span class="option-text">Weekly batch settlement</span>
+              </label>
+            </div>
+            <div class="quiz-feedback hidden">
+              <div class="feedback-correct hidden">
+                <span class="feedback-icon">✓</span>
+                <span>Correct! Instant Payouts settle transactions in seconds, in real-time.</span>
+              </div>
+              <div class="feedback-incorrect hidden">
+                <span class="feedback-icon">✗</span>
+                <span>Not quite. Instant Payouts settle transactions in seconds, in real-time.</span>
+              </div>
+            </div>
+            <button class="btn btn-primary check-answer" data-correct="b">Check Answer</button>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="quiz-question hidden" data-question="2-2">
+            <h3>Question 2 of 3</h3>
+            <p class="question-text">What is needed to initiate an Instant Payout via the API?</p>
+            <div class="quiz-options">
+              <label class="quiz-option">
+                <input type="radio" name="q2-2" value="a">
+                <span class="option-text">Only the recipient's email address</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q2-2" value="b">
+                <span class="option-text">A connected account and payout amount</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q2-2" value="c">
+                <span class="option-text">A physical check</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q2-2" value="d">
+                <span class="option-text">A wire transfer form</span>
+              </label>
+            </div>
+            <div class="quiz-feedback hidden">
+              <div class="feedback-correct hidden">
+                <span class="feedback-icon">✓</span>
+                <span>Correct! You need a connected account and payout amount to initiate an Instant Payout.</span>
+              </div>
+              <div class="feedback-incorrect hidden">
+                <span class="feedback-icon">✗</span>
+                <span>Not quite. You need a connected account and payout amount to initiate an Instant Payout.</span>
+              </div>
+            </div>
+            <button class="btn btn-primary check-answer" data-correct="b">Check Answer</button>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="quiz-question hidden" data-question="2-3">
+            <h3>Question 3 of 3</h3>
+            <p class="question-text">Which payout methods does NovaPay support?</p>
+            <div class="quiz-options">
+              <label class="quiz-option">
+                <input type="radio" name="q2-3" value="a">
+                <span class="option-text">Bank transfer, card push, and digital wallet</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q2-3" value="b">
+                <span class="option-text">Cash only</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q2-3" value="c">
+                <span class="option-text">Cryptocurrency only</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q2-3" value="d">
+                <span class="option-text">Check and money order</span>
+              </label>
+            </div>
+            <div class="quiz-feedback hidden">
+              <div class="feedback-correct hidden">
+                <span class="feedback-icon">✓</span>
+                <span>Correct! NovaPay supports bank transfer, card push, and digital wallet payouts.</span>
+              </div>
+              <div class="feedback-incorrect hidden">
+                <span class="feedback-icon">✗</span>
+                <span>Not quite. NovaPay supports bank transfer, card push, and digital wallet payouts.</span>
+              </div>
+            </div>
+            <button class="btn btn-primary check-answer" data-correct="a">Check Answer</button>
+          </div>
+
+          <div class="quiz-results hidden">
+            <h3>Module Complete!</h3>
+            <p class="results-score">You scored <span id="quiz2Score">0</span> out of 3</p>
+            <button class="btn btn-primary btn-next" data-next="3-1">
+              Continue to Developer Tools
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M6 3l5 5-5 5"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="2-3">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== MODULE 3: DEVELOPER TOOLS ==================== -->
+
+      <!-- Section 3.1: Connect API Overview -->
+      <section class="content-section hidden" id="section-3-1" data-section="3-1" data-module="3">
+        <div class="section-header">
+          <span class="section-badge">Module 3</span>
+          <h1>Connect API Overview</h1>
+          <p class="section-subtitle">One API to link every financial account</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-3-1-connect-api.png" alt="Connect API Overview" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="intro-hero">
+            <div class="hero-icon">🔗</div>
+            <div class="hero-text">
+              <h2>Unified Account Connectivity</h2>
+              <p>Connect API provides a single, unified interface to link bank accounts, card networks, and digital wallets. No more juggling multiple integrations—one API handles Plaid-style account linking, card tokenization, and wallet connections.</p>
+            </div>
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-icon">🏦</div>
+              <h4>Bank Account Linking</h4>
+              <p>Instant verification with micro-deposits or real-time auth for ACH and wire transfers</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">💳</div>
+              <h4>Card Network Tokenization</h4>
+              <p>Securely tokenize Visa, Mastercard, and Amex cards with PCI-compliant vaulting</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">📱</div>
+              <h4>Digital Wallet Support</h4>
+              <p>Native integration with Apple Pay, Google Pay, and other popular wallets</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">📊</div>
+              <h4>Real-time Data</h4>
+              <p>Access live balance checks and transaction data across all connected accounts</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="2-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="3-2">
+            Learn About Drop-in UI
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3.2: Drop-in UI Components -->
+      <section class="content-section hidden" id="section-3-2" data-section="3-2" data-module="3">
+        <div class="section-header">
+          <span class="section-badge">Module 3</span>
+          <h1>Drop-in UI Components</h1>
+          <p class="section-subtitle">Ship payment flows in minutes, not months</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-3-2-drop-in-ui.png" alt="Drop-in UI Components" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="intro-hero">
+            <div class="hero-icon">🧩</div>
+            <div class="hero-text">
+              <h2>Pre-built React Components</h2>
+              <p>NovaPay's Drop-in UI library gives you production-ready payment components that you can theme, customize, and deploy in minutes. Every component is PCI-compliant out of the box.</p>
+            </div>
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-icon">🛒</div>
+              <h4>Checkout Component</h4>
+              <p>Full-featured checkout with theming support, address collection, and multi-payment methods</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">👤</div>
+              <h4>Account Onboarding Flow</h4>
+              <p>Guided onboarding with identity verification, bank linking, and compliance checks built in</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">💳</div>
+              <h4>Payment Method Management</h4>
+              <p>Let users add, remove, and set default payment methods with a single component</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">📜</div>
+              <h4>Transaction History View</h4>
+              <p>Searchable, filterable transaction list with receipts and export functionality</p>
+            </div>
+          </div>
+
+          <div class="toggle-comparison">
+            <div class="toggle-header">
+              <span class="toggle-label" id="toggleLabel">Custom Build</span>
+              <label class="toggle-switch">
+                <input type="checkbox" id="workflowToggle">
+                <span class="toggle-slider"></span>
+              </label>
+              <span class="toggle-label">Drop-in UI</span>
+            </div>
+
+            <div class="workflow-diagram">
+              <div class="workflow-without" id="workflowWithout">
+                <div class="workflow-step">
+                  <div class="step-icon">🔨</div>
+                  <span>Weeks of development</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="step-icon">🔐</div>
+                  <span>PCI compliance burden</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="step-icon">🔧</div>
+                  <span>Ongoing maintenance</span>
+                </div>
+              </div>
+
+              <div class="workflow-with hidden" id="workflowWith">
+                <div class="workflow-step">
+                  <div class="step-icon">⚡</div>
+                  <span>Minutes to integrate</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step highlight">
+                  <div class="step-icon">🛡️</div>
+                  <span>PCI handled</span>
+                </div>
+                <div class="workflow-arrow">→</div>
+                <div class="workflow-step">
+                  <div class="step-icon">✅</div>
+                  <span>Automatic updates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="3-1">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="3-3">
+            Learn About Webhooks Pro
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3.3: Webhooks Pro Configuration -->
+      <section class="content-section hidden" id="section-3-3" data-section="3-3" data-module="3">
+        <div class="section-header">
+          <span class="section-badge">Module 3</span>
+          <h1>Webhooks Pro Configuration</h1>
+          <p class="section-subtitle">Reliable event delivery you can count on</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-3-3-webhooks-pro.png" alt="Webhooks Pro Configuration" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="intro-hero">
+            <div class="hero-icon">🪝</div>
+            <div class="hero-text">
+              <h2>Real-time Event Delivery</h2>
+              <p>Webhooks Pro delivers payment and account events to your services in real time with guaranteed delivery, automatic retries, and a full debugging dashboard.</p>
+            </div>
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-icon">📡</div>
+              <h4>Event Types</h4>
+              <p>Subscribe to payment.completed, payout.settled, account.connected, fraud.detected, and more</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🔄</div>
+              <h4>Replay Capability</h4>
+              <p>Missed an event? Replay any webhook from the last 30 days with one click</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🖥️</div>
+              <h4>Debugging Dashboard</h4>
+              <p>Real-time logs, payload inspection, and delivery status for every webhook</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🎯</div>
+              <h4>Filtering & Routing</h4>
+              <p>Route specific event types to different endpoints with powerful filter rules</p>
+            </div>
+          </div>
+
+          <h3>Try It: Drag-and-Drop Event Mapping</h3>
+          <div class="drag-drop-demo">
+            <div class="available-signers">
+              <h4>Webhook Events</h4>
+              <div class="signer-card draggable" draggable="true" data-signer="john">
+                <span class="signer-avatar">💰</span>
+                <div class="signer-info">
+                  <strong>payment.completed</strong>
+                  <span>Payment Event</span>
+                </div>
+              </div>
+              <div class="signer-card draggable" draggable="true" data-signer="sarah">
+                <span class="signer-avatar">🏦</span>
+                <div class="signer-info">
+                  <strong>payout.settled</strong>
+                  <span>Payout Event</span>
+                </div>
+              </div>
+              <div class="signer-card draggable" draggable="true" data-signer="michael">
+                <span class="signer-avatar">🔗</span>
+                <div class="signer-info">
+                  <strong>account.connected</strong>
+                  <span>Account Event</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="drop-zone" id="countersignerDropZone">
+              <div class="drop-placeholder">
+                <span class="drop-icon">🎯</span>
+                <span>Drag an event here to route it</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-result hidden" id="signerAssigned">
+            <div class="success-icon">✓</div>
+            <p>Event routed! The webhook will deliver matching events to this service endpoint.</p>
+          </div>
+
+          <div class="info-callout">
+            <h4>Available Service Endpoints</h4>
+            <p>Route events to any of your registered services:</p>
+            <ul>
+              <li><strong>Billing Service</strong> — process payment and invoice events</li>
+              <li><strong>Notification Service</strong> — trigger emails and push notifications</li>
+              <li><strong>Analytics Pipeline</strong> — feed events into your data warehouse</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="3-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="3-4">
+            Take Knowledge Check
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3.4: Knowledge Check -->
+      <section class="content-section hidden" id="section-3-4" data-section="3-4" data-module="3">
+        <div class="section-header">
+          <span class="section-badge">Module 3</span>
+          <h1>Knowledge Check</h1>
+          <p class="section-subtitle">Test your understanding of developer tools</p>
+        </div>
+
+        <div class="quiz-container" id="quiz-module-3">
+          <div class="quiz-question" data-question="3-1">
+            <h3>Scenario Question</h3>
+            <p class="question-text">When should you use Drop-in UI components instead of building custom?</p>
+            <div class="quiz-options">
+              <label class="quiz-option">
+                <input type="radio" name="q3-1" value="a">
+                <span class="option-text">Only for prototyping</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q3-1" value="b">
+                <span class="option-text">When you don't need any customization</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q3-1" value="c">
+                <span class="option-text">When you want fast implementation with full theming control</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q3-1" value="d">
+                <span class="option-text">Never—always build custom</span>
+              </label>
+            </div>
+            <div class="quiz-feedback hidden">
+              <div class="feedback-correct hidden">
+                <span class="feedback-icon">✓</span>
+                <span>Correct! Drop-in UI components offer fast implementation while still providing full theming and customization control.</span>
+              </div>
+              <div class="feedback-incorrect hidden">
+                <span class="feedback-icon">✗</span>
+                <span>Not quite. Drop-in UI components are ideal when you want fast implementation with full theming control.</span>
+              </div>
+            </div>
+            <button class="btn btn-primary check-answer" data-correct="c">Check Answer</button>
+          </div>
+
+          <div class="quiz-results hidden">
+            <h3>Module Complete!</h3>
+            <p class="results-score">You answered correctly!</p>
+            <button class="btn btn-primary btn-next" data-next="4-1">
+              Continue to Security & Compliance
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M6 3l5 5-5 5"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="3-3">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== MODULE 4: SECURITY & COMPLIANCE ==================== -->
+
+      <!-- Section 4.1: Fraud Shield Overview -->
+      <section class="content-section hidden" id="section-4-1" data-section="4-1" data-module="4">
+        <div class="section-header">
+          <span class="section-badge">Module 4</span>
+          <h1>Fraud Shield Overview</h1>
+          <p class="section-subtitle">ML-powered protection that never sleeps</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-4-1-fraud-shield.png" alt="Fraud Shield Overview" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="intro-hero">
+            <div class="hero-icon">🛡️</div>
+            <div class="hero-text">
+              <h2>Intelligent Fraud Prevention</h2>
+              <p>Fraud Shield uses machine learning models trained on billions of transactions to monitor payments in real time, score risk instantly, and block suspicious activity before it costs you money.</p>
+            </div>
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-icon">🤖</div>
+              <h4>Machine Learning Models</h4>
+              <p>Trained on billions of transactions to detect anomalies</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">⚡</div>
+              <h4>Real-time Scoring</h4>
+              <p>Every transaction scored in under 50ms</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🎛️</div>
+              <h4>Custom Rules</h4>
+              <p>Build your own fraud rules alongside ML models</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">📊</div>
+              <h4>Analytics Dashboard</h4>
+              <p>Monitor fraud rates, false positives, and trends</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="3-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="4-2">
+            Learn About Vault & Tokenization
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 4.2: Vault & Tokenization Setup -->
+      <section class="content-section hidden" id="section-4-2" data-section="4-2" data-module="4">
+        <div class="section-header">
+          <span class="section-badge">Module 4</span>
+          <h1>Vault & Tokenization Setup</h1>
+          <p class="section-subtitle">PCI compliance without the headache</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-4-2-vault-tokens.png" alt="Vault & Tokenization Setup" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h2>Vault & Tokenization</h2>
+
+          <!-- Steps removed - replaced by accordion and feature grid below -->
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>How Vault Works</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <ul>
+                  <li>Sensitive card data is replaced with tokens</li>
+                  <li>Tokens are safe to store and pass around</li>
+                  <li>Original data never touches your servers</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span>Setup Steps</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M4 6l4 4 4-4"/>
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <ul>
+                  <li>1. Add the Vault.js script to your checkout page</li>
+                  <li>2. Collect card data via secure iframe</li>
+                  <li>3. Receive a reusable token for future charges</li>
+                  <li>4. Use the token in any NovaPay API call</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-icon">🔄</div>
+              <h4>Tokenize Once, Use Anywhere</h4>
+              <p>A single token works across all NovaPay endpoints for payments, subscriptions, and payouts</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">📎</div>
+              <h4>Network Token Support</h4>
+              <p>Leverage network-level tokens from Visa and Mastercard for higher auth rates</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🧹</div>
+              <h4>Automatic Card Updater</h4>
+              <p>Expired or reissued cards are automatically updated to reduce churn</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🔒</div>
+              <h4>PCI DSS Level 1 Certified</h4>
+              <p>The highest level of PCI compliance, so you never have to worry about audits</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="4-1">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="4-3">
+            Learn About Compliance Hub
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 4.3: Compliance Hub Rules -->
+      <section class="content-section hidden" id="section-4-3" data-section="4-3" data-module="4">
+        <div class="section-header">
+          <span class="section-badge">Module 4</span>
+          <h1>Compliance Hub Rules</h1>
+          <p class="section-subtitle">Automated verification that scales with you</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-4-3-compliance-hub.png" alt="Compliance Hub Rules" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="info-callout">
+            <h4>Compliance Hub Overview</h4>
+            <p>The Compliance Hub lets you configure automated verification rules that trigger based on transaction patterns, user attributes, and geographic signals. Rules scale automatically as your platform grows.</p>
+          </div>
+
+          <h3>Available Compliance Rules</h3>
+          <p>Configure automated checks across multiple compliance domains:</p>
+          <ul class="exclusion-list">
+            <li><span class="exclusion-icon">🨪</span> KYC identity verification triggers</li>
+            <li><span class="exclusion-icon">🏢</span> KYB business verification checks</li>
+            <li><span class="exclusion-icon">💰</span> AML transaction monitoring thresholds</li>
+            <li><span class="exclusion-icon">🌍</span> Geographic restriction rules</li>
+          </ul>
+
+          <h3>Try It: Compliance Rule Builder</h3>
+          <div class="exclusion-demo">
+            <div class="exclusion-form">
+              <div class="form-group">
+                <label for="exclusionEmail">Add compliance rule:</label>
+                <div class="input-group">
+                  <input type="text" id="exclusionEmail" placeholder="e.g., KYC required for transactions > $3,000">
+                  <button class="btn btn-secondary" id="addExclusion">Add</button>
+                </div>
+              </div>
+
+              <div class="exclusion-list-demo" id="exclusionListDemo">
+                <h4>Active Compliance Rules</h4>
+                <div class="exclusion-items" id="exclusionItems">
+                  <div class="exclusion-item">
+                    <span>KYC required when cumulative volume > $10,000</span>
+                    <button class="remove-btn" aria-label="Remove">×</button>
+                  </div>
+                </div>
+                <p class="exclusion-empty hidden" id="exclusionEmpty">No compliance rules added yet</p>
+              </div>
+
+              <div class="form-group">
+                <label for="syncDate">Rule effective date:</label>
+                <input type="date" id="syncDate">
+                <p class="form-help">Rule will begin enforcing on this date</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="4-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="4-4">
+            Take Knowledge Check
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 4.4: Knowledge Check -->
+      <section class="content-section hidden" id="section-4-4" data-section="4-4" data-module="4">
+        <div class="section-header">
+          <span class="section-badge">Module 4</span>
+          <h1>Knowledge Check</h1>
+          <p class="section-subtitle">Test your understanding of security and compliance</p>
+        </div>
+
+        <div class="quiz-container" id="quiz-module-4">
+          <div class="quiz-question" data-question="4-1">
+            <h3>Select All That Apply</h3>
+            <p class="question-text">What types of checks can be configured in the Compliance Hub?</p>
+            <div class="quiz-options multi-select">
+              <label class="quiz-option">
+                <input type="checkbox" name="q4-1" value="a">
+                <span class="option-text">KYC identity verification</span>
+              </label>
+              <label class="quiz-option">
+                <input type="checkbox" name="q4-1" value="b">
+                <span class="option-text">KYB business verification</span>
+              </label>
+              <label class="quiz-option">
+                <input type="checkbox" name="q4-1" value="c">
+                <span class="option-text">Social media monitoring</span>
+              </label>
+              <label class="quiz-option">
+                <input type="checkbox" name="q4-1" value="d">
+                <span class="option-text">AML transaction screening</span>
+              </label>
+            </div>
+            <div class="quiz-feedback hidden">
+              <div class="feedback-correct hidden">
+                <span class="feedback-icon">✓</span>
+                <span>Correct! The Compliance Hub supports KYC identity verification, KYB business verification, and AML transaction screening. Social media monitoring is not a compliance check.</span>
+              </div>
+              <div class="feedback-incorrect hidden">
+                <span class="feedback-icon">✗</span>
+                <span>Not quite. The Compliance Hub supports KYC, KYB, and AML checks. Social media monitoring is not part of the Compliance Hub.</span>
+              </div>
+            </div>
+            <button class="btn btn-primary check-answer-multi" data-correct="a,b,d">Check Answer</button>
+          </div>
+
+          <div class="quiz-results hidden">
+            <h3>Module Complete!</h3>
+            <p class="results-score">Great job understanding security and compliance!</p>
+            <button class="btn btn-primary btn-next" data-next="5-1">
+              Continue to Embedded Finance
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M6 3l5 5-5 5"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="4-3">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== MODULE 5: EMBEDDED FINANCE ==================== -->
+
+      <!-- Section 5.1: Embedded Accounts -->
+      <section class="content-section hidden" id="section-5-1" data-section="5-1" data-module="5">
+        <div class="section-header">
+          <span class="section-badge">Module 5</span>
+          <h1>Embedded Accounts</h1>
+          <p class="section-subtitle">White-label banking under your brand</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-5-1-embedded-accounts.png" alt="Embedded Accounts" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="feature-highlight">
+            <div class="highlight-icon">🏦</div>
+            <div class="highlight-content">
+              <h2>White-Label Bank Accounts & Virtual Cards</h2>
+              <p>Launch fully branded bank accounts and card programs for your users, powered by FDIC-insured banking partners with full API control.</p>
+            </div>
+          </div>
+
+          <div class="improvement-grid">
+            <div class="improvement-card">
+              <div class="improvement-icon">🏦</div>
+              <h3>Launch branded bank accounts</h3>
+              <p>Offer your users bank accounts under your own brand with seamless onboarding</p>
+            </div>
+            <div class="improvement-card">
+              <div class="improvement-icon">💳</div>
+              <h3>Issue virtual and physical debit cards</h3>
+              <p>Provide branded debit cards with real-time controls and spend management</p>
+            </div>
+            <div class="improvement-card">
+              <div class="improvement-icon">🛡️</div>
+              <h3>FDIC-insured deposits</h3>
+              <p>All deposits are FDIC-insured through our banking partners for maximum security</p>
+            </div>
+            <div class="improvement-card">
+              <div class="improvement-icon">⚙️</div>
+              <h3>Full API control</h3>
+              <p>Complete API control over account creation, funding, and transactions</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="4-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="5-2">
+            Continue
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 5.2: Global Rails & Multi-Currency -->
+      <section class="content-section hidden" id="section-5-2" data-section="5-2" data-module="5">
+        <div class="section-header">
+          <span class="section-badge">Module 5</span>
+          <h1>Global Rails & Multi-Currency</h1>
+          <p class="section-subtitle">Accept and send payments in 40+ countries</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-5-2-global-rails.png" alt="Global Rails & Multi-Currency" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="feature-highlight">
+            <div class="highlight-icon">🌍</div>
+            <div class="highlight-content">
+              <h2>Multi-Currency Payments & Local Methods</h2>
+              <p>Expand your reach globally with automatic currency conversion, local payment methods, and competitive FX rates across 40+ countries.</p>
+            </div>
+          </div>
+
+          <div class="benefit-summary">
+            <h3>Global Capabilities</h3>
+            <ul>
+              <li>Automatic currency conversion with competitive FX rates</li>
+              <li>Local payment methods (SEPA, Pix, UPI, iDEAL, etc.)</li>
+              <li>Multi-currency accounts and settlement</li>
+              <li>Real-time FX rate locking for predictable pricing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="5-1">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="5-3">
+            Continue
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 5.3: Revenue Analytics -->
+      <section class="content-section hidden" id="section-5-3" data-section="5-3" data-module="5">
+        <div class="section-header">
+          <span class="section-badge">Module 5</span>
+          <h1>Revenue Analytics</h1>
+          <p class="section-subtitle">Real-time visibility into your payment business</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-5-3-revenue-analytics.png" alt="Revenue Analytics" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="feature-highlight">
+            <div class="highlight-icon">📈</div>
+            <div class="highlight-content">
+              <h2>Revenue Analytics Dashboards</h2>
+              <p>Get real-time visibility into your payment business with comprehensive analytics dashboards and custom reporting tools.</p>
+            </div>
+          </div>
+
+          <div class="info-callout">
+            <h4>Analytics Capabilities</h4>
+            <ul>
+              <li>Payment volume and transaction trends</li>
+              <li>Conversion rate tracking across payment methods</li>
+              <li>Revenue breakdown by product, geography, and customer segment</li>
+              <li>Custom report builder with export capabilities</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="5-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="6-1">
+            Continue to Platform Operations
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== MODULE 6: PLATFORM OPERATIONS ==================== -->
+
+      <!-- Section 6.1: Live Ledger -->
+      <section class="content-section hidden" id="section-6-1" data-section="6-1" data-module="6">
+        <div class="section-header">
+          <span class="section-badge">Module 6</span>
+          <h1>Live Ledger</h1>
+          <p class="section-subtitle">Real-time financial truth for your platform</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-6-1-live-ledger.png" alt="Live Ledger" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="feature-highlight">
+            <div class="highlight-icon">📊</div>
+            <div class="highlight-content">
+              <h2>Real-Time Double-Entry Accounting</h2>
+              <p>Live Ledger provides sub-cent precision accounting with a full audit trail, real-time balance queries, and automatic reconciliation for your platform.</p>
+            </div>
+          </div>
+
+          <div class="screenshot-tour">
+            <h3>Feature Tour</h3>
+            <div class="tour-placeholder">
+              <div class="placeholder-content">
+                <span class="placeholder-icon">🖼️</span>
+                <p>Live Ledger Dashboard</p>
+                <p class="placeholder-note">Click hotspots to learn about each feature area</p>
+              </div>
+              <div class="tour-hotspots">
+                <button class="hotspot" style="top: 20%; left: 15%;" data-tooltip="Account hierarchy view for organizing ledger accounts">1</button>
+                <button class="hotspot" style="top: 40%; left: 50%;" data-tooltip="Real-time transaction feed with filtering and search">2</button>
+                <button class="hotspot" style="top: 60%; left: 75%;" data-tooltip="Balance summary with drill-down to individual entries">3</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-callout">
+            <h4>Key Capabilities</h4>
+            <ul>
+              <li>Sub-cent precision for accurate financial records</li>
+              <li>Full audit trail with immutable transaction history</li>
+              <li>Real-time balance queries across all accounts</li>
+              <li>Automatic reconciliation with bank feeds</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="5-3">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="6-2">
+            Continue
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 6.2: Smart Routing -->
+      <section class="content-section hidden" id="section-6-2" data-section="6-2" data-module="6">
+        <div class="section-header">
+          <span class="section-badge">Module 6</span>
+          <h1>Smart Routing</h1>
+          <p class="section-subtitle">Optimize every transaction automatically</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-6-2-smart-routing.png" alt="Smart Routing" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="feature-highlight">
+            <div class="highlight-icon">🔄</div>
+            <div class="highlight-content">
+              <h2>Intelligent Payment Routing</h2>
+              <p>Smart Routing automatically selects the optimal processor for every transaction, maximizing success rates while minimizing costs.</p>
+            </div>
+          </div>
+
+          <div class="improvement-grid">
+            <div class="improvement-card">
+              <div class="improvement-icon">🎯</div>
+              <h3>Automatic processor selection</h3>
+              <p>Optimal success rates through intelligent processor selection for each transaction</p>
+            </div>
+            <div class="improvement-card">
+              <div class="improvement-icon">💰</div>
+              <h3>Cost optimization</h3>
+              <p>Reduce processing costs across multiple payment rails automatically</p>
+            </div>
+            <div class="improvement-card">
+              <div class="improvement-icon">🔄</div>
+              <h3>Failover routing</h3>
+              <p>Maximum uptime with automatic failover to backup processors</p>
+            </div>
+            <div class="improvement-card">
+              <div class="improvement-icon">🧪</div>
+              <h3>A/B testing for routing</h3>
+              <p>Test and compare routing strategies to continuously improve performance</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="6-1">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="6-3">
+            Continue
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 6.3: API Permissions & Scopes -->
+      <section class="content-section hidden" id="section-6-3" data-section="6-3" data-module="6">
+        <div class="section-header">
+          <span class="section-badge">Module 6</span>
+          <h1>API Permissions & Scopes</h1>
+          <p class="section-subtitle">Granular access control for your team</p>
+        </div>
+
+        <div class="video-container video-thumbnail" onclick="playRickroll(this)">
+          <img src="images/thumb-6-3-api-permissions.png" alt="API Permissions & Scopes" class="video-thumb-img">
+          <div class="play-btn-overlay">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="feature-highlight">
+            <div class="highlight-icon">🔐</div>
+            <div class="highlight-content">
+              <h2>API Key Scoping & Team Permissions</h2>
+              <p>Control exactly who can access what with role-based API key management, granular permission scopes, and comprehensive audit logging.</p>
+            </div>
+          </div>
+
+          <div class="info-callout">
+            <h4>Access Control Features</h4>
+            <ul>
+              <li>Role-based access control for API keys</li>
+              <li>Granular permission scopes (read, write, admin)</li>
+              <li>Environment-specific keys (sandbox vs. production)</li>
+              <li>Audit log for all API access and changes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="6-2">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+          <button class="btn btn-primary btn-next" data-next="exam">
+            Take Final Exam
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M6 3l5 5-5 5"/>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== FINAL EXAM ==================== -->
+
+      <section class="content-section hidden" id="section-exam" data-section="exam" data-module="exam">
+        <div class="section-header">
+          <span class="section-label">Final Assessment</span>
+          <h1>Final Exam</h1>
+          <p class="section-subtitle">Test your knowledge of the NovaPay platform features</p>
+        </div>
+
+        <div class="content-block">
+          <div id="final-exam" class="exam-container">
+
+            <!-- Exam Intro -->
+            <div id="exam-intro" class="exam-intro">
+              <div class="exam-info-box">
+                <h3>📝 About This Exam</h3>
+                <ul>
+                  <li><strong>10 Questions</strong> covering all modules</li>
+                  <li><strong>75% required to pass</strong> (8 out of 10 correct)</li>
+                  <li><strong>Maximum 3 attempts</strong> - your best score will be recorded</li>
+                </ul>
+              </div>
+              <p id="exam-previous-score" class="exam-previous-score hidden"></p>
+              <button id="start-exam-btn" class="btn btn-primary btn-large">Start Exam</button>
+            </div>
+
+            <!-- Question 1: Instant Payouts -->
+            <div class="exam-question hidden" data-correct="b">
+              <div class="exam-progress">Question 1 of 10</div>
+              <h3>What is the primary advantage of NovaPay's Instant Payouts?</h3>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q1" value="a">
+                  <span>Payouts are processed in weekly batches for efficiency</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q1" value="b">
+                  <span>Funds settle in seconds via real-time rails to bank accounts, cards, or wallets</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q1" value="c">
+                  <span>Payouts are limited to domestic ACH transfers</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q1" value="d">
+                  <span>Recipients must create a NovaPay account to receive funds</span>
+                </label>
+              </div>
+              <div class="exam-feedback hidden"></div>
+              <button class="btn btn-primary submit-exam-answer">Submit Answer</button>
+            </div>
+
+            <!-- Question 2: Connect API -->
+            <div class="exam-question hidden" data-correct="c">
+              <div class="exam-progress">Question 2 of 10</div>
+              <h3>What does the Connect API enable platforms to do?</h3>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q2" value="a">
+                  <span>Only process credit card payments</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q2" value="b">
+                  <span>Replace their entire backend infrastructure</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q2" value="c">
+                  <span>Onboard sub-merchants, split payments, and manage multi-party money flows</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q2" value="d">
+                  <span>Send marketing emails to customers</span>
+                </label>
+              </div>
+              <div class="exam-feedback hidden"></div>
+              <button class="btn btn-primary submit-exam-answer">Submit Answer</button>
+            </div>
+
+            <!-- Question 3: Drop-in UI -->
+            <div class="exam-question hidden" data-correct="a">
+              <div class="exam-progress">Question 3 of 10</div>
+              <h3>Why would a developer choose Drop-in UI components over building custom?</h3>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q3" value="a">
+                  <span>They provide fast implementation with full theming control and built-in PCI compliance</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q3" value="b">
+                  <span>They are the only way to accept payments with NovaPay</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q3" value="c">
+                  <span>They eliminate the need for any JavaScript on the page</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q3" value="d">
+                  <span>They only work with React applications</span>
+                </label>
+              </div>
+              <div class="exam-feedback hidden"></div>
+              <button class="btn btn-primary submit-exam-answer">Submit Answer</button>
+            </div>
+
+            <!-- Question 4: Webhooks Pro -->
+            <div class="exam-question hidden" data-correct="d">
+              <div class="exam-progress">Question 4 of 10</div>
+              <h3>Which feature of Webhooks Pro ensures reliable event delivery?</h3>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q4" value="a">
+                  <span>Events are sent once and discarded if delivery fails</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q4" value="b">
+                  <span>All events are stored in a daily email digest</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q4" value="c">
+                  <span>Webhook endpoints are limited to HTTPS only</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q4" value="d">
+                  <span>Automatic retries with exponential backoff, dead letter queues, and real-time monitoring</span>
+                </label>
+              </div>
+              <div class="exam-feedback hidden"></div>
+              <button class="btn btn-primary submit-exam-answer">Submit Answer</button>
+            </div>
+
+            <!-- Question 5: Fraud Shield -->
+            <div class="exam-question hidden" data-correct="b">
+              <div class="exam-progress">Question 5 of 10</div>
+              <h3>How does Fraud Shield detect and prevent fraudulent transactions?</h3>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q5" value="a">
+                  <span>It blocks all transactions over $1,000 by default</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q5" value="b">
+                  <span>ML models trained on billions of transactions score risk in real time and block suspicious activity</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q5" value="c">
+                  <span>It requires manual review of every transaction before processing</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q5" value="d">
+                  <span>It only checks transactions against a static blocklist</span>
+                </label>
+              </div>
+              <div class="exam-feedback hidden"></div>
+              <button class="btn btn-primary submit-exam-answer">Submit Answer</button>
+            </div>
+
+            <!-- Question 6: Vault & Tokenization -->
+            <div class="exam-question hidden" data-correct="c">
+              <div class="exam-progress">Question 6 of 10</div>
+              <h3>What is the primary benefit of Vault tokenization for sensitive payment data?</h3>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q6" value="a">
+                  <span>It speeds up transaction processing by 10x</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q6" value="b">
+                  <span>It stores card numbers in plain text for easy access</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q6" value="c">
+                  <span>Sensitive data never touches your servers — replaced with tokens that reduce PCI scope</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q6" value="d">
+                  <span>It only works with credit cards, not bank accounts</span>
+                </label>
+              </div>
+              <div class="exam-feedback hidden"></div>
+              <button class="btn btn-primary submit-exam-answer">Submit Answer</button>
+            </div>
+
+            <!-- Question 7: Embedded Accounts -->
+            <div class="exam-question hidden" data-correct="c">
+              <div class="exam-progress">Question 7 of 10</div>
+              <h3>What does Embedded Accounts allow platforms to offer their users?</h3>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q7" value="a">
+                  <span>Cryptocurrency wallets only</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q7" value="b">
+                  <span>Investment portfolio management</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q7" value="c">
+                  <span>White-label bank accounts and virtual/physical debit cards</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q7" value="d">
+                  <span>Insurance products under their brand</span>
+                </label>
+              </div>
+              <div class="exam-feedback hidden"></div>
+              <button class="btn btn-primary submit-exam-answer">Submit Answer</button>
+            </div>
+
+            <!-- Question 8: Global Rails & Multi-Currency -->
+            <div class="exam-question hidden" data-correct="b">
+              <div class="exam-progress">Question 8 of 10</div>
+              <h3>What does Global Rails & Multi-Currency provide for pricing predictability?</h3>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q8" value="a">
+                  <span>Fixed exchange rates that never change</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q8" value="b">
+                  <span>Real-time FX rate locking for predictable pricing</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q8" value="c">
+                  <span>Single-currency settlement only</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q8" value="d">
+                  <span>Manual currency conversion tools</span>
+                </label>
+              </div>
+              <div class="exam-feedback hidden"></div>
+              <button class="btn btn-primary submit-exam-answer">Submit Answer</button>
+            </div>
+
+            <!-- Question 9: Live Ledger -->
+            <div class="exam-question hidden" data-correct="d">
+              <div class="exam-progress">Question 9 of 10</div>
+              <h3>What key capability does Live Ledger provide for platform accounting?</h3>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q9" value="a">
+                  <span>Monthly batch reconciliation reports</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q9" value="b">
+                  <span>Tax preparation automation</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q9" value="c">
+                  <span>Invoice generation tools</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q9" value="d">
+                  <span>Real-time double-entry accounting with sub-cent precision and automatic reconciliation</span>
+                </label>
+              </div>
+              <div class="exam-feedback hidden"></div>
+              <button class="btn btn-primary submit-exam-answer">Submit Answer</button>
+            </div>
+
+            <!-- Question 10: Smart Routing -->
+            <div class="exam-question hidden" data-correct="a">
+              <div class="exam-progress">Question 10 of 10</div>
+              <h3>What does Smart Routing do to optimize transactions?</h3>
+              <div class="quiz-options">
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q10" value="a">
+                  <span>Automatically selects the optimal processor for each transaction to maximize success rates</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q10" value="b">
+                  <span>Manually routes payments to the cheapest processor</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q10" value="c">
+                  <span>Sends all transactions through a single processor</span>
+                </label>
+                <label class="quiz-option">
+                  <input type="radio" name="exam-q10" value="d">
+                  <span>Delays transactions until the best rate is available</span>
+                </label>
+              </div>
+              <div class="exam-feedback hidden"></div>
+              <button class="btn btn-primary submit-exam-answer">Submit Answer</button>
+            </div>
+
+            <!-- Exam Results -->
+            <div id="exam-results" class="exam-results hidden">
+              <h3>Exam Complete!</h3>
+
+              <div class="exam-score-display">
+                <div class="score-item">
+                  <span class="score-label">This Attempt:</span>
+                  <span id="exam-score" class="score-value">--</span>
+                </div>
+                <div class="score-item">
+                  <span class="score-label">Best Score:</span>
+                  <span id="exam-best-score" class="score-value">--</span>
+                </div>
+              </div>
+
+              <div id="exam-pass-fail" class="exam-pass-fail"></div>
+
+              <p class="attempts-info">
+                <span id="exam-attempts-left">--</span> attempt(s) remaining
+              </p>
+
+              <div class="exam-actions">
+                <button id="retake-exam-btn" class="btn btn-secondary hidden">Retake Exam</button>
+                <button id="exam-complete-btn" class="btn btn-primary hidden">Complete Course</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary btn-prev" data-prev="6-3">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M10 3l-5 5 5 5"/>
+            </svg>
+            Previous
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== COURSE COMPLETION ==================== -->
+
+      <section class="content-section hidden" id="section-completion" data-section="completion" data-module="completion">
+        <div class="section-header completion-header">
+          <div class="completion-icon-large">
+            <svg class="checkmark-large" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+              <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+          <h1>Congratulations!</h1>
+          <p class="section-subtitle">You've completed the Platform Launch Training</p>
+        </div>
+
+        <div class="content-block">
+          <div class="completion-summary">
+            <h2>What You Learned</h2>
+
+            <div class="summary-grid">
+              <div class="summary-item">
+                <span class="summary-icon">⚡</span>
+                <div class="summary-content">
+                  <h4>Instant Payouts</h4>
+                  <p>Real-time settlement to bank accounts, cards, and digital wallets</p>
+                </div>
+              </div>
+              <div class="summary-item">
+                <span class="summary-icon">🔌</span>
+                <div class="summary-content">
+                  <h4>Connect API & Drop-in UI</h4>
+                  <p>Sub-merchant onboarding, payment splitting, and pre-built components</p>
+                </div>
+              </div>
+              <div class="summary-item">
+                <span class="summary-icon">🛡️</span>
+                <div class="summary-content">
+                  <h4>Fraud Shield & Vault</h4>
+                  <p>ML-powered fraud detection and PCI-compliant tokenization</p>
+                </div>
+              </div>
+              <div class="summary-item">
+                <span class="summary-icon">🏦</span>
+                <div class="summary-content">
+                  <h4>Embedded Finance</h4>
+                  <p>White-label accounts, global rails, and revenue analytics</p>
+                </div>
+              </div>
+              <div class="summary-item">
+                <span class="summary-icon">📊</span>
+                <div class="summary-content">
+                  <h4>Platform Operations</h4>
+                  <p>Live ledger, smart routing, and API permissions</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="completion-stats">
+            <div class="stat">
+              <span class="stat-value" id="completionTime">--</span>
+              <span class="stat-label">Time Spent</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="sectionsCompleted">--</span>
+              <span class="stat-label">Sections Completed</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" id="quizScore">--</span>
+              <span class="stat-label">Quiz Score</span>
+            </div>
+          </div>
+
+          <div class="completion-actions">
+            <button class="btn btn-primary btn-large" id="completeCourseBtn">
+              Mark Course Complete
+            </button>
+            <p class="completion-note">This will record your completion in the learning management system.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Mobile Navigation Footer -->
+  <footer class="mobile-nav" id="mobileNav">
+    <button class="btn btn-secondary btn-prev-mobile" id="mobilePrev" disabled>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M10 3l-5 5 5 5"/>
+      </svg>
+    </button>
+    <span class="mobile-progress" id="mobileProgress">1 / 20</span>
+    <button class="btn btn-primary btn-next-mobile" id="mobileNext">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M6 3l5 5-5 5"/>
+      </svg>
+    </button>
+  </footer>
+
+  <script src="js/cmi5-wrapper.js?v=31"></script>
+  <script src="js/course.js?v=31"></script>
+  <script src="js/interactions.js?v=31"></script>
+  <script src="js/xapi-tracker.js?v=31"></script>
+  <script>
+    function playRickroll(container) {
+      if (container.classList.contains('playing')) return;
+      container.classList.add('playing');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0';
+      iframe.allow = 'autoplay; encrypted-media';
+      iframe.allowFullscreen = true;
+      container.appendChild(iframe);
+    }
+
+    // Mark correct answers with subtle visual hint
+    document.addEventListener('DOMContentLoaded', function() {
+      // Knowledge checks — correct answer is on the button's data-correct attribute
+      document.querySelectorAll('.check-answer, .check-answer-multi').forEach(function(btn) {
+        var correct = btn.dataset.correct;
+        if (!correct) return;
+        var question = btn.closest('.quiz-question');
+        if (!question) return;
+        var values = correct.split(',');
+        question.querySelectorAll('.quiz-option').forEach(function(opt) {
+          var input = opt.querySelector('input');
+          if (input && values.includes(input.value)) {
+            opt.classList.add('is-correct-hint');
+          }
+        });
+      });
+      // Final exam — correct answer is on the exam-question's data-correct attribute
+      document.querySelectorAll('.exam-question').forEach(function(q) {
+        var correct = q.dataset.correct;
+        if (!correct) return;
+        q.querySelectorAll('.quiz-option').forEach(function(opt) {
+          var input = opt.querySelector('input');
+          if (input && input.value === correct) {
+            opt.classList.add('is-correct-hint');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

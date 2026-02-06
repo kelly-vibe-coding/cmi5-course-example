@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<courseStructure xmlns="https://w3id.org/xapi/profiles/cmi5/v1/CourseStructure.xsd">
+  <course id="https://novapay.dev/training/platform-launch">
+    <title>
+      <langstring lang="en-US">Platform Launch Training</langstring>
+    </title>
+    <description>
+      <langstring lang="en-US">Learn about the NovaPay platform features, including Connect API, Instant Payouts, Fraud Shield, Drop-in UI components, Vault tokenization, Global Rails, Compliance Hub, and more.</langstring>
+    </description>
+  </course>
+
+  <au id="https://novapay.dev/training/platform-launch/au/main"
+      activityType="http://adlnet.gov/expapi/activities/course"
+      launchMethod="AnyWindow"
+      moveOn="CompletedOrPassed">
+    <title>
+      <langstring lang="en-US">Platform Launch Training</langstring>
+    </title>
+    <description>
+      <langstring lang="en-US">Complete course on NovaPay platform features</langstring>
+    </description>
+    <url>index.html</url>
+  </au>
+</courseStructure>
