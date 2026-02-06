@@ -428,6 +428,12 @@ const XAPITracker = (function() {
     // This makes time-on-page show up in SCORM Cloud's Interactions report!
     // Using "numeric" interaction type with time in seconds as the response
 
+    // Skip time-on-page tracking for Module 3
+    if (moduleInfo && moduleInfo.number === 3) {
+      sectionStartTime = null;
+      return;
+    }
+
     // Build clean interaction ID for the section
     let interactionId;
     let activityName;
