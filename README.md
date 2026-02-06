@@ -90,13 +90,16 @@ Install the **Live Server** extension, right-click `index.html`, and choose "Ope
 
 ## Deploying to an LMS
 
-### Step 1: Zip the package
+### Step 1: Grab the zip
 
-The LMS needs a `.zip` file containing everything in `course-package/`:
+A ready-to-upload package is included in the repo:
+
+**[NovaPay-Platform-Launch-Training.zip](NovaPay-Platform-Launch-Training.zip)**
+
+Or build it yourself:
 
 ```bash
-cd course-package
-zip -r ../NovaPay-Platform-Launch-Training.zip .
+zip -r NovaPay-Platform-Launch-Training.zip . -x ".*" "__MACOSX/*" "*.zip"
 ```
 
 ### Step 2: Upload to your LMS
